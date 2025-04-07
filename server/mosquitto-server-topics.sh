@@ -189,8 +189,6 @@ if [[ "$ADD_SUBTOPIC" =~ ^[Yy]$ ]]; then
         echo "Error: Subtopic message cannot be empty."
         exit 1
     fi
-    # Check if the subtopic value is provided
-    
     # Publish a message to create the subtopic
     mosquitto_pub -h "$BROKER_ADDRESS" -p "$PORT" -t "$TOPIC_NAME/$SUBTOPIC_NAME/$TOPIC_VALUE" -r --username "$USERNAME" --password "$PASSWORD" -m "$MESSAGE"
     if [ $? -eq 0 ]; then
