@@ -27,4 +27,6 @@ else
 fi
 
 echo "Listening to all topics on the MQTT broker at $BROKER:$PORT..."
-mosquitto_sub -h "$BROKER" -p "$PORT" -t "#" -v
+mosquitto_sub -h "$BROKER" -p "$PORT" -t "#" -v "$OUTPUT_FILE" &
+echo "Press [CTRL+C] to stop listening and save the file."
+wait
